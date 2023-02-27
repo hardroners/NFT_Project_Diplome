@@ -31,13 +31,35 @@ contract NFT is ERC721, ERC721URIStorage, Whitelist {
         _setTokenURI(_tokenId,_uri);
     }
 
+
     function tokenURI(uint256 tokenId)
         public
+        onlyOwner
         view
         override(ERC721, ERC721URIStorage)
         returns (string memory)
     {
         return super.tokenURI(tokenId);
+    }
+
+//à revoir//
+    function getMetaData(uint256 tokenId, string memory metaData)
+    public onlyOwner
+    view
+    returns (string memory)
+    {
+        require(keccak256(abi.encodePacked(tokenURI(tokenId))) ==  keccak256(abi.encodePacked(metaData)));
+        return tokenURI(tokenId);
+    }
+
+    function getAll() public onlyOwner view returns (string[] memory){
+        uint256 _count = _tokenIdCounter.current();
+        string[] memory allNft;
+        for(uint256 i = 0; i < _count; i++){
+            allNft[i] = tokenURI(i);
+        }
+
+        return allNft;
     }
 
 }
