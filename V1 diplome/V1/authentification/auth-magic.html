@@ -30,7 +30,7 @@
           /* Get user metadata including email */
           const userMetadata = await magic.user.getMetadata();
           document.cookie = "user= "+userMetadata
-          document.location.href="../../client/page/home.html"
+          document.location.href="../index.html"
         }
 
         document.getElementById('app').innerHTML = html;

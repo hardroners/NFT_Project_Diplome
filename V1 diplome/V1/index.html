@@ -60,6 +60,7 @@
               <li><a href="#"><i class="fab fa-twitter"></i></a></li>
               <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
               <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+              <li><a href="authentification/auth-magic.html"><i class="profile">Log in</i></a></li>
             </ul>
           </div>
         </div>
@@ -81,13 +82,13 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                      <li class="scroll-to-section"><a href="#services">Services</a></li>
+                      <li class="scroll-to-section"><a href="index.html" class="active">Home</a></li>
+                      <li class="scroll-to-section"><a href="index.html#services">Services</a></li>
                       <li class="scroll-to-section"><a href="index.html">About Us</a></li>
                       <li class="scroll-to-section"><a href="faqs.html">FAQ</a></li>
-                      <li class="scroll-to-section"><a href="#contact">Contact</a></li>
+                      <li class="scroll-to-section"><a href="index.html#contact">Contact</a></li>
                       <li class="scroll-to-section"><a href="manage_diploma.html">manage diploma</a></li>
-                  </ul>   
+                    </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -109,7 +110,7 @@
             <h4>Verify a <em>diploma</em> in <span>5 second</span></h4>
             <div class="col-lg-6">
               <div class="get-free-quote">
-                <form id="free-quote" method="submit" role="search" action="#">
+                <form id="free-quote" method="submit" role="search" action="back/verify_diploma.php" methode="get">
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="section-heading">
@@ -117,7 +118,7 @@
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <input type="full-name" name="full-name" id="full-name" placeholder="Diploma's token" autocomplete="on" >
+                        <input type="full-name" id="diploma_token" placeholder="Diploma's token" autocomplete="on" >
                       </fieldset>
                     </div>
                     <div class="col-lg-12">
