@@ -1,0 +1,67 @@
+
+  .popup{
+    width: 90%;
+  }
+
+  .popup h2{
+    font-size: xx-large;
+  }
+  
+  /* Masquez la forme Popup */
+  .form-popup {
+    display: none;
+    width: 50%;
+    position: fixed;
+    left: 45%;
+    top: 5%;
+    transform: translate(-45%, 5%);
+    border: 2px solid #666;
+    border-radius: 50px;
+    background-color: #fff;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.13);
+    
+  }
+  /* Styles pour le conteneur de forme */
+  .form-container {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 50px;
+    z-index: 100;
+  }
+  /* Largeur complète pour les champs de saisie */
+  .form-container input {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: none;
+  }
+  .form-container input[type="text"]{
+    background: #eee;
+  }
+  /*Quand les entrées sont concentrées, faites quelque chose */
+  .form-container input[type="text"]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  /* Stylez le bouton de connexion*/
+  .popup-button {
+    display:flex;
+    justify-content: end;
+  }
+
+  .popup-button button{
+    margin:5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+  }
+
+  /* Stylez le bouton pour annuler */
+  .form-container .cancel:hover {
+    background-color: #eda4a4;
+  }
+  /* Planez les effets pour les boutons */
+  .form-container .btn:hover,
+  .open-button:hover {
+    opacity: 1;
+  }
+

@@ -1,0 +1,35 @@
+.presentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4%;
+    margin-top: 5%;
+    min-width: 1000px;
+}
+
+.presentation img {
+    width: 50%;
+    transform: rotate(-90deg);
+    padding: 50px;
+}
+
+.description{
+    width: 30%;
+    height: 40%;
+    border-radius: 23px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+    padding: 60px;
+    margin-left: 45px;
+    background:linear-gradient()
+}
+
+.description-sub{
+    padding: 10%;
+}
+
+
+
+footer{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.10);
+}
