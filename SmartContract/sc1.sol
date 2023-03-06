@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./Whitelist.sol";
 
-contract NFT is ERC721, ERC721URIStorage, Whitelist {
+contract ESMEDIPLOME is ERC721, ERC721URIStorage, Whitelist {
 
     //mapping(uint => string) public ipfsURLs; 
 
@@ -40,26 +40,6 @@ contract NFT is ERC721, ERC721URIStorage, Whitelist {
         returns (string memory)
     {
         return super.tokenURI(tokenId);
-    }
-
-//à revoir//
-    function getMetaData(uint256 tokenId, string memory metaData)
-    public onlyOwner
-    view
-    returns (string memory)
-    {
-        require(keccak256(abi.encodePacked(tokenURI(tokenId))) ==  keccak256(abi.encodePacked(metaData)));
-        return tokenURI(tokenId);
-    }
-
-    function getAll() public onlyOwner view returns (string[] memory){
-        uint256 _count = _tokenIdCounter.current();
-        string[] memory allNft;
-        for(uint256 i = 0; i < _count; i++){
-            allNft[i] = tokenURI(i);
-        }
-
-        return allNft;
     }
 
 }
