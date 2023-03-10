@@ -1,31 +1,67 @@
-const FleekStorage = require('@fleekhq/fleek-storage-js')
-const fleekStorage = new FleekStorage({
-  apiKey: 'tEgyrrlCPoVt4cu1i4Qlxw==',
-  apiSecret: 'xbcWexeLICXxIns6zMXic9PNNbEoBXBi13LlC14zvLI=',
-  bucket: 'beb5b9bc-bfee-4668-93d7-616ebab1a730',
-})
+const addFilesandGetURI = async(apiKey,apiSecret) =>{
+  const fs = require('fs');
+  const fleekStorage = require('@fleekhq/fleek-storage-js'); 
 
-// Vérifier si le répertoire existe et le créer s'il n'existe pas
-const directoryPath = '/nom_prenom'
-fleekStorage.listDirectory(directoryPath).then(result => {
-  if (result.error) {
-    fleekStorage.createDirectory(directoryPath).then(result => {
-      if (result.error) {
-        console.error(result.error)
-      } else {
-        console.log(`Répertoire ${directoryPath} créé avec succès`)
-      }
-    })
-  }
-})
+  const filePath = 'C:/Users/33781/Desktop/NFT_Project_Diplome/V1 diplome/V1/fleek/test.pdf';
+  const filePathJSON = 'C:/Users/33781/Desktop/NFT_Project_Diplome/V1 diplome/V1/fleek/test.txt.json';
+  const NOM_PRENOM = "MOLEGNANA_JULIE";
+  const directoryPath = `/TEST/${NOM_PRENOM}2/`;
+  const path = require('path');
 
-// Télécharger un fichier dans le répertoire
-const filePath = '/nom_prenom/intro.txt'
-const fileData = 'Contenu du fichier à télécharger'
-fleekStorage.upload(filePath, fileData).then(result => {
-  if (result.error) {
-    console.error(result.error)
-  } else {
-    console.log(`Fichier ${filePath} téléchargé avec succès`)
+  
+  // Créez le dossier parent s'il n'existe pas
+  try {
+      await fleekStorage.upload({
+          apiKey,
+          apiSecret,
+          key: directoryPath,
+          data: Buffer.from(''),
+      });
+  } catch (error) {
+      console.error(`Erreur lors de la création du dossier parent : ${error}`);
   }
-})
+
+  const fileData = fs.readFileSync(filePath);
+  const fileDataJSON = fs.readFileSync(filePathJSON);
+
+  const uploadedFile = await fleekStorage.upload({
+      apiKey,
+      apiSecret,
+      key: `/TEST/${NOM_PRENOM}2/${path.basename(filePath)}`,
+      data: fileData,
+  });
+
+  const URI_Diplome = await fleekStorage.get({
+      apiKey,
+      apiSecret,
+      key: `/TEST/${NOM_PRENOM}2/${path.basename(filePath)}`,
+      getOptions: ['publicUrl'],
+  });
+
+  const contenuJSON = JSON.parse(fileDataJSON);
+  contenuJSON.uri = URI_Diplome;
+  const nouveauJSON = JSON.stringify(contenuJSON);
+
+  const uploadedFileJSON = await fleekStorage.upload({
+      apiKey,
+      apiSecret,
+      key: `/TEST/${NOM_PRENOM}2/${path.basename(filePathJSON)}`,
+      data: nouveauJSON,
+  });
+
+  const URI_JSON = await fleekStorage.get({
+      apiKey,
+      apiSecret,
+      key: `/TEST/${NOM_PRENOM}2/${path.basename(filePathJSON)}`,
+      getOptions: ['publicUrl'],
+  });
+
+  return URI_JSON;
+};
+
+addFilesandGetURI('tEgyrrlCPoVt4cu1i4Qlxw==', 'xbcWexeLICXxIns6zMXic9PNNbEoBXBi13LlC14zvLI=')
+  .then((URI) => console.log(`URI du fichier JSON : ${URI}`))
+  .catch((error) => console.error(`Erreur : ${error}`));
+
+
+
