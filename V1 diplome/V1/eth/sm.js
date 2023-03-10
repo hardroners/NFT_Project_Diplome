@@ -1,8 +1,6 @@
 // import { tokenURIABI,tokenContract,tokenId,contract} from "./variable.js"
 
-const Web3 = require('web3');
-
-
+// const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider('https://sepolia.infura.io/v3/9f5a10bd11b74208a7aec4094ed91ca5'));
 
 const tokenURIABI = [
@@ -444,28 +442,14 @@ const tokenId = 0 // A token we'd like to retrieve its metadata of
 const contract = new web3.eth.Contract(tokenURIABI, tokenContract)
 
 
-
-
-// async function getNFTMetadata() {
-//     var uri = await contract.methods.tokenURI(tokenId).call()
-// 	return uri;
-// }
-
 async function getNFTMetadata() { 
-	let uri = await contract.methods.tokenURI(tokenId).call();
-	return uri;
+	var a = await contract.methods.tokenURI(tokenId).call().then( response => {return response})
+	document.getElementById("display").innerHTML =a;
 };
 
-
-const rtn = getNFTMetadata().then(x =>{return x})
-
-console.log(rtn);
-
-
-// getNFTMetadata().then(x => { 
-//     rtn = x; 
-// });
-
+async function createNFT() { 
+	var a = await contract.methods.create().call().then(alert("L'étudiant a été créé"))
+};
 
 
 

@@ -3,18 +3,16 @@ const path = require('path');
 const fleek = require('@fleekhq/fleek-storage-js');   
 
 
-const apiKey = "f+rTHEWsFzFegWoqUQcAXmqQ==";
-const apiSecret = "vPLPC900y69NNPdORC7a7Mh8cEqv3nuUD8CMopWTAAg=";
+const apiKey = 'tEgyrrlCPoVt4cu1i4Qlxw==';
+const apiSecret = 'xbcWexeLICXxIns6zMXic9PNNbEoBXBi13LlC14zvLI=';
 
 const testFunctionUpload = async (data) => {
-  const date = new Date();
-  const timestamp = date.getTime();
 
   const input = {
     apiKey,
     apiSecret,
-    key: "TEST/test9.json",
-    data,
+    key: "TEST/tt.txt",
+    data : "test",
   };
 
   try {
@@ -25,7 +23,7 @@ const testFunctionUpload = async (data) => {
   }
 }
 
-const filePath = path.join(__dirname, 'README.md');
+const filePath = path.join( 'test.json');
 
 fs.readFile(filePath, (err, data) => {
   if(!err) {

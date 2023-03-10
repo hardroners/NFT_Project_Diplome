@@ -1,7 +1,7 @@
 const FleekStorage = require('@fleekhq/fleek-storage-js')
 const fleekStorage = new FleekStorage({
-  apiKey: 'f+rTHEWsFzFegWoqUQcAXmqQ==',
-  apiSecret: 'vPLPC900y69NNPdORC7a7Mh8cEqv3nuUD8CMopWTAAg=',
+  apiKey: 'tEgyrrlCPoVt4cu1i4Qlxw==',
+  apiSecret: 'xbcWexeLICXxIns6zMXic9PNNbEoBXBi13LlC14zvLI=',
   bucket: 'beb5b9bc-bfee-4668-93d7-616ebab1a730',
 })
 
