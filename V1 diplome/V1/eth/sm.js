@@ -239,6 +239,19 @@ const tokenURIABI = [
 		"type": "function"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			}
+		],
+		"name": "URIAdded",
+		"type": "event"
+	},
+	{
 		"inputs": [],
 		"name": "_tokenIdCounter",
 		"outputs": [
@@ -265,6 +278,26 @@ const tokenURIABI = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAll",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "url",
+						"type": "string"
+					}
+				],
+				"internalType": "struct ESMEDIPLOME.URI[]",
+				"name": "",
+				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
@@ -436,20 +469,53 @@ const tokenURIABI = [
 	}
 ];
 
-const tokenContract = "0xF74D8E1A542AeAB1c7BCd9B6D87d36D771F5E9F7" // BAYC contract address
-const tokenId = 0 // A token we'd like to retrieve its metadata of
+const tokenContract = "0x6a63A5ca190fa44b478eCF01F6d7e5bD3C455260" // BAYC contract address
+
 
 const contract = new web3.eth.Contract(tokenURIABI, tokenContract)
 
 
-async function getNFTMetadata() { 
-	var a = await contract.methods.tokenURI(tokenId).call().then( response => {return response})
-	document.getElementById("display").innerHTML =a;
+async function getNFTMetadata(tokenId) { 
+	var uri = await contract.methods.tokenURI(tokenId).call().then( response => {return response})
+	document.getElementById("display").innerHTML =uri;
+	$.getJSON(uri, function(data) {
+		document.getElementById("nom").innerHTML =data.nom;
+		document.getElementById("prenom").innerHTML =data.prenom;
+		document.getElementById("annee").innerHTML =data.annee;
+		document.getElementById("jury").innerHTML =data.jury;
+		document.getElementById("filiere").innerHTML =data.filiere;
+		document.getElementById("diplome").innerHTML =data.diplome;
+	});
 };
 
-async function createNFT() { 
-	var a = await contract.methods.create().call().then(alert("L'étudiant a été créé"))
+async function getAllNFTMetadata() { 
+	var a = await contract.methods.getAll().call().then( response => {
+		document.getElementById("display").innerHTML =response;
+
+	})
+}
+
+async function createNFT(URI) { 
+	var account = null;
+	var contract = null;
+
+	//Connect to wallet
+		if(window.ethereum){
+			await window.ethereum.send('eth_requestAccounts');
+			window.web3 = new Web3(window.ethereum);
+
+			var accounts = await web3.eth.getAccounts();
+			account = accounts[0];
+			document.getElementById('wallet-address').textContent = account;
+
+			contract = new web3.eth.Contract(tokenURIABI, tokenContract);
+
+			contract.methods.create("https://fleek.ipfs.io/ipfs/bafybeiapagidjpw2w2l5h7fmzyweds5rvlxjhu6sdpfpsu4r7pqgskrzeq").send({from: account, value:"0"});
+		}
 };
+
+
+
 
 
 

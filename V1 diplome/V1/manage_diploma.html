@@ -135,24 +135,24 @@ https://templatemo.com/tm-582-tale-seo-agency
   
         <div class="popup">
           <div class="form-popup" id="popupForm">
-            <form action="/action_page.php" class="form-container">
+            <form class="form-container" method="get">
               <h2><strong>Ajouter un diplome</strong></h2><br>
   
               <label>Nom</label><br>
-              <input type="text" id="nom" placeholder="nom" required /><br>
+              <input type="text" id="nom" placeholder="nom" /><br>
               <label>Prénom</label><br>
-              <input type="text" id="prenom" placeholder="prenom" required /><br>
+              <input type="text" id="prenom" placeholder="prenom"  /><br>
               <label>Annee</label><br>
-              <input type="text" id="annee" placeholder="annee" required /><br>
+              <input type="text" id="annee" placeholder="annee"  /><br>
               <label>Filière</label><br>
-              <input type="text" id="filiere" placeholder="filiere" required /><br>
+              <input type="text" id="filiere" placeholder="filiere"  /><br>
               <label>Jury</label><br>
-              <input type="text" id="jury" placeholder="jury" required /><br>
+              <input type="text" id="jury" placeholder="jury"  /><br>
               <label>Diplôme</label><br>
-              <input type="file" id="diplome" placeholder="diplome" required />
+              <input type="file" id="diplome" placeholder="diplome"/>
   
               <div class="popup-button">
-                <button type="submit" class="btn">Valider</button>
+                <button type="button" class="btn" onclick="ValidForm()">Valider</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
               </div>
   
@@ -190,6 +190,8 @@ https://templatemo.com/tm-582-tale-seo-agency
 
 
   <!-- Scripts -->
+  <script src="./fleek/fleek_create.js"></script>
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="assets/js/custom.js"></script>

@@ -2,7 +2,7 @@ const fleek = require('@fleekhq/fleek-storage-js');
 
 const hash = "bafybeifikvfeuzugzbuoi4c2a5otqnsdovqk52pc3uzkbze6ttfup5v74y";
 
-const testFunctionGet = async () => {
+ async function testFunctionGet() {
   const input = {
     hash,
   };

@@ -1,12 +1,18 @@
-const addFilesandGetURI = async(apiKey,apiSecret) =>{
+
   const fs = require('fs');
   const fleekStorage = require('@fleekhq/fleek-storage-js'); 
-
-  const filePath = 'C:/Users/33781/Desktop/NFT_Project_Diplome/V1 diplome/V1/fleek/test.pdf';
-  const filePathJSON = 'C:/Users/33781/Desktop/NFT_Project_Diplome/V1 diplome/V1/fleek/test.txt.json';
-  const NOM_PRENOM = "MOLEGNANA_JULIE";
-  const directoryPath = `/TEST/${NOM_PRENOM}2/`;
   const path = require('path');
+
+const addFilesandGetURI = async(apiKey,apiSecret) =>{
+
+
+
+
+  const filePath = 'C:/Users/cedric/Documents/GitHub/NFT_Project_Diplome/V1 diplome/V1/fleek/test.pdf';
+  const filePathJSON = 'C:/Users/cedric/Documents/GitHub/NFT_Project_Diplome/V1 diplome/V1/fleek/test.json';
+  const NOM_PRENOM = "MOLEGNANA_JULIE";
+  const directoryPath = `/TEST/${NOM_PRENOM}3/`;
+  
 
   
   // Créez le dossier parent s'il n'existe pas
@@ -45,14 +51,14 @@ const addFilesandGetURI = async(apiKey,apiSecret) =>{
   const uploadedFileJSON = await fleekStorage.upload({
       apiKey,
       apiSecret,
-      key: `/TEST/${NOM_PRENOM}2/${path.basename(filePathJSON)}`,
+      key: `/TEST/${NOM_PRENOM}3/${path.basename(filePathJSON)}`,
       data: nouveauJSON,
   });
 
   const URI_JSON = await fleekStorage.get({
       apiKey,
       apiSecret,
-      key: `/TEST/${NOM_PRENOM}2/${path.basename(filePathJSON)}`,
+      key: `/TEST/${NOM_PRENOM}3/${path.basename(filePathJSON)}`,
       getOptions: ['publicUrl'],
   });
 
