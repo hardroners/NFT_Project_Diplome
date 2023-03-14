@@ -20,5 +20,13 @@
     <script>getNFTMetadata(6);</script>
 
     <!-- <script>createNFT("https://fleek.ipfs.io/ipfs/bafybeiapagidjpw2w2l5h7fmzyweds5rvlxjhu6sdpfpsu4r7pqgskrzeq");</script> -->
+
+    <form action="" method="get">
+        <input type="text" id="oui" name="oui">
+        <button type="submit">test</button>
+    </form>
+    <?php
+    echo $_GET["oui"]
+    ?>
 </body>
 </html>

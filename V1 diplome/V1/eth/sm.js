@@ -477,7 +477,6 @@ const contract = new web3.eth.Contract(tokenURIABI, tokenContract)
 
 async function getNFTMetadata(tokenId) { 
 	var uri = await contract.methods.tokenURI(tokenId).call().then( response => {return response})
-	document.getElementById("display").innerHTML =uri;
 	$.getJSON(uri, function(data) {
 		document.getElementById("nom").innerHTML =data.nom;
 		document.getElementById("prenom").innerHTML =data.prenom;

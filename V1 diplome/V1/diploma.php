@@ -122,7 +122,7 @@
         </div>
         <div class="description-sub">
             <label><strong>Description :</strong></label><br>
-            <label id="description">Description</label>
+            <label id="diplome">Description</label>
         </div>
         <div class="description-sub">
             <label><strong>Jury :</strong></label><br>
@@ -144,14 +144,22 @@
 
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="./eth/sm.js"></script>
+  
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
 
+
+<?php
+  $token = $_GET['diploma_token'];
+  var_dump($token);
+  echo '<script type="text/javascript">getNFTMetadata(' .$token.');</script>';
+
+?>
 
   </body>
 
