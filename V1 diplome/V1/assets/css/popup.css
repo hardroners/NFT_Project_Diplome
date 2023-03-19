@@ -19,6 +19,7 @@
     border-radius: 50px;
     background-color: #fff;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.13);
+    z-index: 100;
     
   }
   /* Styles pour le conteneur de forme */
