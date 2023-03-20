@@ -69,16 +69,20 @@
   .btn{
     margin-left: 600px;
     margin-top: 20px;
-   display: inline-block;
-  padding: 15px 25px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #bc89ae;
-  border: none;
-  border-radius: 15px;
+    text-decoration: none;
+    padding: 10px;
+    font-family: arial;
+    font-size: 1em;
+    color: #FFFFFF;
+    background-color: #b06aa1;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+
   }
+
+.btn:hover,
+.btn:focus {
+  background-color: #b06aa1;
+}
 
