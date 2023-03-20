@@ -265,24 +265,6 @@ dataPDF = fs.readFileSync(diplome);
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_tokenId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "_uri",
-          "type": "string"
-        }
-      ],
-      "name": "update",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "anonymous": false,
       "inputs": [
         {
@@ -513,7 +495,7 @@ dataPDF = fs.readFileSync(diplome);
     }
   ];
   
-  const tokenContract = "0x762C32d22687A5e165840De55a8051bd9BC93666" // BAYC contract address
+  const tokenContract = "0xDAe570BFF51395d2cDCFFfF071E147692749d523" // BAYC contract address
   
   
     const web3 = new Web3(new Web3.providers.HttpProvider('https://sepolia.infura.io/v3/9f5a10bd11b74208a7aec4094ed91ca5'));
