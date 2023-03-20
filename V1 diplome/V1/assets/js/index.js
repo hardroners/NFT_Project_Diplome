@@ -505,6 +505,7 @@ function toggleArrow(event) {
 
 //Fill the table
 async function populateTable() {
+  var i=0;
   table.innerHTML = '';
     var Tableuri = await contract.methods.getAll().call({from: public_account})
 
@@ -512,22 +513,27 @@ async function populateTable() {
     $.getJSON(uri[0], function(data) {
       
       let row = table.insertRow(-1);
-      let nom = row.insertCell(0);
+
+      let id = row.insertCell(0);
+      id.innerHTML = i;
+      i+=1;
+
+      let nom = row.insertCell(1);
       nom.innerHTML = data.nom;
   
-      let prenom = row.insertCell(1);
+      let prenom = row.insertCell(2);
       prenom.innerHTML = data.prenom;
   
-      let annee = row.insertCell(2);
+      let annee = row.insertCell(3);
       annee.innerHTML = data.annee;
   
-      let filiere = row.insertCell(3);
+      let filiere = row.insertCell(4);
       filiere.innerHTML = data.filiere;
   
-      let jury = row.insertCell(4);
+      let jury = row.insertCell(5);
       jury.innerHTML = data.jury;
   
-      let diplome_cell = row.insertCell(5);
+      let diplome_cell = row.insertCell(6);
       var diplome_a = document.createElement('a');
       var href="https://fleek.ipfs.io/ipfs/"+data.diplome;
       console.log(data.diplome);
