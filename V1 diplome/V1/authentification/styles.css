@@ -4,6 +4,10 @@ body {
   height: 100vh;
   display: grid;
   font-size: 18px;
+  background-image: url(infos-bg.jpg);
+  background-position: center;
+  background-size: cover;
+
 }
 
 #app {
