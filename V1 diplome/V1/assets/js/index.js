@@ -450,7 +450,7 @@ tokenURIABI = [
 const public_account = "0x069977Cdc3D618343e5b7A1E9eE3f8fd07190eDa";
 tokenContract = "0xDAe570BFF51395d2cDCFFfF071E147692749d523" // BAYC contract address
 contract = new web3.eth.Contract(tokenURIABI, tokenContract)
-// console.log(tableData);
+var tableData;
 var table = document.getElementById('mytable');
 var input = document.getElementById('myinput');
 
@@ -510,6 +510,7 @@ async function populateTable() {
 
   for (let uri of Tableuri) {
     $.getJSON(uri[0], function(data) {
+      
       let row = table.insertRow(-1);
       let nom = row.insertCell(0);
       nom.innerHTML = data.nom;

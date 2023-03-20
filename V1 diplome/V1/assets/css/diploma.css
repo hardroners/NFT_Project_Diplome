@@ -7,8 +7,9 @@
     margin-top: 5%;
 }
 
-.presentation img {
-    width: 50%;
+.presentation embed {
+    width: 100%;
+    height: 100%;
     transform: rotate(-90deg);
     padding: 50px;
 }
