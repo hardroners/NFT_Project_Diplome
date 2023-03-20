@@ -513,7 +513,7 @@ dataPDF = fs.readFileSync(diplome);
     }
   ];
   
-  const tokenContract = "0xd0e36730d628DfCD0700e74b34324065b6FCD5b1" // BAYC contract address
+  const tokenContract = "0x762C32d22687A5e165840De55a8051bd9BC93666" // BAYC contract address
   
   
     const web3 = new Web3(new Web3.providers.HttpProvider('https://sepolia.infura.io/v3/9f5a10bd11b74208a7aec4094ed91ca5'));
