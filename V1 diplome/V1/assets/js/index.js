@@ -465,7 +465,7 @@ tokenURIABI = [
     "type": "function"
   }
 ];
-tokenContract = "0xd0e36730d628DfCD0700e74b34324065b6FCD5b1" // BAYC contract address
+tokenContract = "0x762C32d22687A5e165840De55a8051bd9BC93666" // BAYC contract address
 contract = new web3.eth.Contract(tokenURIABI, tokenContract)
 // console.log(tableData);
 var table = document.getElementById('mytable');
