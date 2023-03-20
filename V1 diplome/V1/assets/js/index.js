@@ -547,7 +547,11 @@ async function populateTable() {
       jury.innerHTML = data.jury;
   
       let diplome = row.insertCell(5);
-      diplome.innerHTML = data.diplome;
+      var diplome_url = document.createElement('a');
+      var href=diplome;
+      diplome_url.href = href;
+      diplome_url.innerHTML = 'link';
+      linkCell.appendChild(diplome_url);
   
     });
 
