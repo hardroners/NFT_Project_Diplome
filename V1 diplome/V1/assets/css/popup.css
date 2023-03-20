@@ -66,3 +66,19 @@
     opacity: 1;
   }
 
+  .btn{
+    margin-left: 600px;
+    margin-top: 20px;
+   display: inline-block;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #bc89ae;
+  border: none;
+  border-radius: 15px;
+  }
+
