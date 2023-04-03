@@ -489,5 +489,11 @@ async function searchDiploma(){
       document.getElementById("jury").innerHTML =data.jury;
       document.getElementById("filiere").innerHTML =data.filiere;
       document.getElementById("diplome").src ="https://fleek.ipfs.io/ipfs/"+data.diplome;
+	  new QRCode(document.getElementById("qrcode"),
+	  {
+		text:"https://fleek.ipfs.io/ipfs/"+data.diplome,
+		width:100,
+		height:100
+		});
     });
 }
